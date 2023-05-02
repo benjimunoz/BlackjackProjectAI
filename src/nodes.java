@@ -1,5 +1,5 @@
-import java.util.ArrayList;
 
+// the nodes class helps build the player tree within the Expectiminimax AI
 public class nodes {
 
     //This class is used for Expectiminimax.

@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Random;
 public class Cards {
     Random random = new Random();
+    // Every possible card with their given value is below
     int ace0fHearts = 1;
     int aceOfClubs = 1;
     int aceOfSpades = 1;
@@ -75,6 +76,8 @@ public class Cards {
 public Cards() {
 }
 
+    // getRandomCard() pulls a random card out of the list of card within the actual deck
+    // the actual deck excludes the unknown dealer's card
     public int getRandomCard(){
 
         int random = new Random().nextInt(actualDeck.length);
@@ -84,6 +87,9 @@ public Cards() {
         return card;
     }
 
+    // gets a random card within the deck that has the possible cards that are actually left
+    // gets a random card like the method above; however, onlygetRandomCard() does not take the random
+    // card out of the deck
     public int onlygetRandomCard(){
 
         int random = new Random().nextInt(actualDeck.length);
@@ -104,6 +110,8 @@ public Cards() {
     }
     }
 
+    //when a random card is called, the removeCard() method will take this specific card out of both
+    // the actualDeck and the Deck with cards that the player knows is left
     public void removeCard(int j){
         int[] deck_new = new int[Deck.length-1];
         for(int i=0, k=0; i<Deck.length; i++) {
@@ -123,6 +131,10 @@ public Cards() {
         }
         actualDeck = newDeck;
     }
+
+    // the dealerCard() method will randomly select a card to be one of the dealerCards
+    // for this specific card, the player will not know this cards value.
+    // this method will be the difference between the Deck and the actualDeck
     public int dealerCard(){
         int random = new Random().nextInt(Deck.length);
         int card = Deck[random];
@@ -130,6 +142,8 @@ public Cards() {
         dealHand.add(card);
         return card;
     }
+
+    // This method helps remove the card chosen in the dealerCard() method from the actualDeck
     private void dealerRemoveCard(int j){
         int[] deck_new = new int[actualDeck.length-1];
         for(int i=0, k=0; i<actualDeck.length; i++) {
@@ -140,7 +154,8 @@ public Cards() {
         }
         actualDeck = deck_new;
     }
-    
+
+    // faceCard() method adds a random card to the dealers hand
     public int faceCard(){
         int random = new Random().nextInt(Deck.length);
         int card = Deck[random];
@@ -149,12 +164,12 @@ public Cards() {
         return card;
     }
     
-
+    // This method returns which card are currently within the Deck
     public int[] getDeck(){
         return Deck;
     }
 
-
+    // getTotal() calculates the sum of the value of cards within the player's hand
     public int getTotal(){
         int total = 0;
         for (int i = 0; i < hand.size(); i++){
@@ -163,6 +178,7 @@ public Cards() {
         return total;
     }
 
+    // getProb() calculates the chance of drawing a specific card
     public double getProb(int val){
     //find out how often this value occurs within the remaining deck
         //find the frequenecy, divide by the total number of cards in remaining deck

@@ -5,7 +5,6 @@ import java.util.Random;
 public class Main {
     public static void main(String[] args) {
         Cards cards = new Cards();
-        System.out.println(cards.getRandomCard());
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to Blackjack!");
         System.out.println("Here are the rules. Don't worry, it's a simple game:");
@@ -66,6 +65,7 @@ public class Main {
         System.out.print("Thanks for playing!");
     }
 
+    // Method DisplayRules() describes the rules for generic blackjack
     public static void DisplayRules() {
         System.out.println("1. Dealer will hand you 2 cards. These cards can range from a value of 1 (A)");
         System.out.println("   all the way to a value of 10");
@@ -76,6 +76,7 @@ public class Main {
         System.out.println("");
     }
 
+    // If user chooses option2, this method is called for the epectiminimax algorith to play against dealer
     public static double Expectiminmax(){
         Cards emCards = new Cards();
         //Cards dealCards = new Cards();
@@ -161,7 +162,7 @@ public class Main {
             }
         }
 
-
+        // Method MonteCarlo() plays automatically between the built monte carlo algorithm against the dealer
         public static int MonteCarlo() {
             MonteCarlo monteCarlo = new MonteCarlo();
             boolean monteCarloChoice = true;
@@ -238,7 +239,7 @@ public class Main {
         }
 
 
-
+    // Method Play() allows the user to play against the dealer, no AIs are involved
     public static int Play() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("You will now play against the dealer.");
@@ -303,7 +304,7 @@ public class Main {
 
 
 
-
+        // test() is used to compare both AIs when both AIs play 100 times
         public static void test(){
         double num =100;//100 tests
             double winsEC =0;

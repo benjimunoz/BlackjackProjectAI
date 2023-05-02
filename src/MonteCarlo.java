@@ -5,7 +5,8 @@ public class MonteCarlo {
 
 
 
-
+    // monteCarloSimulationHelper() is used to be the main method within the Monte Carlo AI
+    // This method calculates the probability of busting or not if one additional card is added to the player's hand
     public double monteCarloSimulationHelper(ArrayList<Integer> mcHand, ArrayList<Integer> dealHand, double numtrials) {
 
         Cards cards = new Cards();
@@ -16,11 +17,11 @@ public class MonteCarlo {
             cards.removespefCard(dealHand.get(i));
         }
         double probability = mcHammer(mcHand, cards, numtrials);
+        //returns the probability of not busting whenever you hit divided by the total number of trials.
         return probability;
     }
 
-
-    //returns the probability of not busting whenever you hit divided by the total number of trials.
+    // Method mcHammer() calculates how many times the player does not bust
     public double mcHammer(ArrayList<Integer> mcHand, Cards cards, double numtrials) {
         double mcWINS = 0.0;
         int handTotal = 0;
