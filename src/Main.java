@@ -11,15 +11,15 @@ public class Main {
         System.out.println("Here are the rules. Don't worry, it's a simple game:");
         DisplayRules();
         System.out.println("");
-        System.out.println("Now you will choose whether you want to play against the dealer, have a expectiminimax algorithm play against our dealer,");
-        System.out.println("try your luck with our algorithm based off of the average joe's luck.");
+        System.out.println("Now you will choose whether you want to try your luck playing against the dealer, have a expectiminimax algorithm play against our dealer, or");
+        System.out.println("have our Monte Carlo algorithm play against the dealer.");
 
         int MenuChoice = 0;
         while (MenuChoice != 4) {
             System.out.println("What would you like to do?");
             System.out.println("1. Play against the dealer.");
-            System.out.println("2. Play with our expectiminax algorithm.");
-            System.out.println("3. Play with our Average Joe (Monte Carlo) Algorithm.");
+            System.out.println("2. Play with our Expectiminax algorithm.");
+            System.out.println("3. Play with our Monte Carlo Algorithm.");
             System.out.println("4. Quit the game :(");
             System.out.println("5. Display the rules again.");
             System.out.println("6. Here are our tests for running each algorithm 100x");
@@ -36,22 +36,13 @@ public class Main {
             }
             if (MenuChoice == 2) {
                 double ans = Expectiminmax();
-                if(ans==1){
-                    System.out.println("Congratulations! The expectiminimax algorithm won you money!");
-                }
-                else if(ans ==2){
-                    System.out.println("You tied with the dealer. Here's your money back.");
-                }
-                else{
+                if (ans == 1) {
+                    System.out.println("Congratulations! The Expectiminimax algorithm won!");
+                } else if (ans == 2) {
+                    System.out.println("You tied with the dealer");
+                } else {
                     System.out.println("Oof! You lost :(");
                 }
-
-            }
-            if(MenuChoice ==5){
-                DisplayRules();
-            }
-            if(MenuChoice ==6){
-                test();
             }
             if (MenuChoice == 3) {
                 int ans = MonteCarlo();
@@ -61,7 +52,14 @@ public class Main {
                 else{
                     System.out.println("Oof! You lost!");
                 }
-            } else if (MenuChoice != 1 && MenuChoice != 2 && MenuChoice != 3 && MenuChoice != 4 && MenuChoice != 5 && MenuChoice !=6) {
+            }
+            if(MenuChoice ==5){
+                DisplayRules();
+            }
+            if(MenuChoice ==6){
+                test();
+            }
+            else if (MenuChoice != 1 && MenuChoice != 2 && MenuChoice != 3 && MenuChoice != 4 && MenuChoice != 5 && MenuChoice !=6) {
                 System.out.println("Please only enter from the options below.");
             }
         }
